@@ -1,0 +1,8 @@
+<p *ngIf="product.price > 700">
+  <!--Agregamos un evento al boton 
+      e invocamos la propiedad notify para ejecutar 
+      el metodo emit()--->
+  
+  <button (click) = "notify.emit()">Notificar</button>
+
+</p>

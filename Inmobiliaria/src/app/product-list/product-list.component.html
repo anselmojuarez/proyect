@@ -1,0 +1,47 @@
+<h2>
+Lista de Opcines,elige la que mas te guste !
+</h2>
+<!---
+
+<div *ngFor="let product of products">
+    <h2>
+        {{product.name}}<br>
+        {{product.price}}<br>
+        {{product .description}}
+
+    </h2>
+</div >
+-->
+
+
+<hr>
+<h2>Inmobiliaria NEPA</h2>
+<hr>
+
+
+<div *ngFor="let product of products; index as productId">
+    <h3>
+        <!--creamos un tootip para desplegralo cuando se deje el puntero
+        sobre el producto-->
+        <a [title]="product.name" [routerLink]="['/products', productId]">
+            {{product.name}}
+        </a>
+    </h3>
+    
+    <p *ngIf="product.modelo">
+        Model :{{product.modelo}}
+    </p>
+    <h3>
+        <a [title]="product.name + product.price + product.description"><img class="products" src="{{product.imagen}}" width="300"/>
+        </a>
+
+   </h3>
+
+    <button (click)="share()">
+        Share
+    </button>
+    
+    <app-product-alerts [product] = "product" (notify) = "onNotify()">
+
+    </app-product-alerts>
+    </div>
